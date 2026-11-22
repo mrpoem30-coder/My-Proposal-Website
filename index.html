@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Love You Baby 💖</title>
+
+  <!-- Tailwind CSS via CDN for responsive layout and modern utility styling -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Google Fonts: Fredoka & Quicksand (cute rounded English) + Pacifico (romantic script accent) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&family=Quicksand:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <script>
+    /* Configure custom pastel color tokens and font families in Tailwind */
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cute: ['"Fredoka"', '"Quicksand"', 'sans-serif'],
+            soft: ['"Quicksand"', '"Fredoka"', 'sans-serif'],
+            script: ['"Pacifico"', 'cursive'],
+          },
+          colors: {
+            blush: {
+              50: '#fff5f8',
+              100: '#ffe4ee',
+              200: '#ffc7dc',
+              300: '#ff9ec2',
+              400: '#ff6ea4',
+              500: '#f54287',
+            },
+            cream: '#fffaf3',
+            lavender: {
+              100: '#f3e8ff',
+              200: '#e9d5ff',
+              300: '#d8b4fe',
+            },
+            cocoa: '#6b4752',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    /* ==========================================================================
+       Base Styling & Dreamy Pastel Gradient Background
+       ========================================================================== */
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Quicksand', 'Fredoka', sans-serif;
+      background: linear-gradient(135deg, #fff5f8 0%, #fffaf3 35%, #fce7f3 70%, #f3e8ff 100%);
+      background-size: 200% 200%;
+      animation: gradientShift 14s ease infinite;
+      color: #6b4752;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    h1, h2, h3, button {
+      font-family: 'Fredoka', 'Quicksand', sans-serif;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* ==========================================================================
+       Soft Puffy Kawaii Card Shadow & Tactile Button Effects
+       ========================================================================== */
+    .puffy-card {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow:
+        0 14px 32px -8px rgba(244, 114, 182, 0.24),
+        0 4px 12px -2px rgba(192, 132, 252, 0.16),
+        inset 0 2px 0 rgba(255, 255, 255, 0.95);
+    }
+
+    .puffy-btn-yes {
+      box-shadow:
+        0 7px 0 #db2777,
+        0 12px 24px rgba(244, 63, 135, 0.35);
+      transition: transform 0.22s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.22s ease,
+                  background-color 0.2s ease;
+    }
+
+    .puffy-btn-yes:hover {
+      filter: brightness(1.04);
+    }
+
+    .puffy-btn-yes:active {
+      box-shadow:
+        0 2px 0 #db2777,
+        0 5px 12px rgba(244, 63, 135, 0.3);
+    }
+
+    .puffy-btn-no {
+      box-shadow:
+        0 7px 0 #d8b4fe,
+        0 10px 20px rgba(192, 132, 252, 0.25);
+      transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.22s ease,
+                  opacity 0.25s ease;
+    }
+
+    .puffy-btn-no:active {
+      box-shadow:
+        0 2px 0 #d8b4fe,
+        0 4px 10px rgba(192, 132, 252, 0.2);
+    }
+
+    /* ==========================================================================
+       Staggered Bouncy Drop-Down Animations
+       ========================================================================== */
+    .drop-hidden {
+      opacity: 0;
+      transform: translateY(-48px) scale(0.9);
+      pointer-events: none;
+    }
+
+    .drop-in {
+      animation: bouncyDropDown 0.85s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes bouncyDropDown {
+      0% {
+        opacity: 0;
+        transform: translateY(-56px) scale(0.85);
+      }
+      65% {
+        opacity: 1;
+        transform: translateY(8px) scale(1.03);
+      }
+      85% {
+        transform: translateY(-3px) scale(0.99);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    /* ==========================================================================
+       Playful Shake, Bunny Hop, Speech Pop, Warm Pulse & Floating Elements
+       ========================================================================== */
+    @keyframes playfulShake {
+      0%, 100% { transform: translateX(0) rotate(0deg); }
+      20% { transform: translateX(-8px) rotate(-5deg); }
+      40% { transform: translateX(8px) rotate(5deg); }
+      60% { transform: translateX(-6px) rotate(-3deg); }
+      80% { transform: translateX(6px) rotate(3deg); }
+    }
+
+    .animate-shake {
+      animation: playfulShake 0.45s ease-in-out;
+    }
+
+    @keyframes popBounceIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.45) translateY(24px) rotate(-6deg);
+      }
+      65% {
+        opacity: 1;
+        transform: scale(1.08) translateY(-6px) rotate(2deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotate(0deg);
+      }
+    }
+
+    .animate-pop-in {
+      animation: popBounceIn 0.65s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes bunnyHopWiggle {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      25% { transform: translateY(-16px) rotate(-6deg) scale(1.05, 0.96); }
+      50% { transform: translateY(0) rotate(5deg) scale(0.96, 1.05); }
+      75% { transform: translateY(-9px) rotate(-3deg) scale(1.02); }
+    }
+
+    .animate-bunny-hop {
+      animation: bunnyHopWiggle 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes bubblePop {
+      0% { transform: scale(0.86); }
+      50% { transform: scale(1.09); }
+      100% { transform: scale(1); }
+    }
+
+    .animate-bubble-pop {
+      animation: bubblePop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes gentleFloat {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-7px); }
+    }
+
+    .animate-gentle-float {
+      animation: gentleFloat 3.2s ease-in-out infinite;
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.16); }
+      45% { transform: scale(0.98); }
+      65% { transform: scale(1.12); }
+    }
+
+    .animate-heartbeat {
+      animation: heartBeat 1.5s ease-in-out infinite;
+    }
+
+    @keyframes warmYesPulse {
+      0%, 100% {
+        box-shadow: 0 7px 0 #db2777, 0 0 0 0 rgba(244, 63, 135, 0.45);
+      }
+      50% {
+        box-shadow: 0 7px 0 #db2777, 0 0 0 14px rgba(244, 63, 135, 0);
+      }
+    }
+
+    .yes-encouraged {
+      animation: warmYesPulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes letterGlow {
+      0%, 100% {
+        box-shadow: 0 7px 0 #db2777, 0 0 18px rgba(255, 110, 164, 0.45);
+      }
+      50% {
+        box-shadow: 0 7px 0 #db2777, 0 0 30px rgba(244, 63, 135, 0.72);
+      }
+    }
+
+    .glow-letter-btn {
+      animation: letterGlow 2.2s ease-in-out infinite;
+    }
+
+    @keyframes floatUpHeart {
+      0% {
+        transform: translateY(0) translateX(0) rotate(0deg) scale(0.7);
+        opacity: 0;
+      }
+      12% {
+        opacity: 0.65;
+      }
+      85% {
+        opacity: 0.5;
+      }
+      100% {
+        transform: translateY(-112vh) translateX(var(--drift, 25px)) rotate(var(--spin, 25deg)) scale(1.1);
+        opacity: 0;
+      }
+    }
+
+    .bg-sparkle {
+      position: fixed;
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      animation: twinkleStar ease-in-out infinite;
+    }
+
+    @keyframes twinkleStar {
+      0%, 100% { opacity: 0.15; transform: scale(0.6) rotate(0deg); }
+      50% { opacity: 0.9; transform: scale(1.2) rotate(45deg); }
+    }
+
+    /* Speech Bubble Tail */
+    .speech-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%) rotate(45deg);
+      width: 18px;
+      height: 18px;
+      background: #ffffff;
+      border-right: 3px solid #ffc7dc;
+      border-bottom: 3px solid #ffc7dc;
+      border-radius: 3px;
+    }
+
+    /* Celebration View Transition */
+    .view-enter {
+      animation: celebrationFadeIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes celebrationFadeIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.88) translateY(24px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Love Letter Modal Animation */
+    .modal-pop {
+      animation: popBounceIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    /* Confetti Canvas Overlay */
+    #confettiCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 40;
+    }
+  </style>
+</head>
+<body class="relative flex flex-col items-center justify-center min-h-screen px-4 py-8 sm:py-12 selection:bg-blush-200 selection:text-cocoa">
+
+  <!-- ========================================================================
+       Ambient Background Layer: Floating Pastel Hearts & Twinkling Sparkles
+       ======================================================================== -->
+  <div id="ambientLayer" class="fixed inset-0 overflow-hidden pointer-events-none z-0" aria-hidden="true"></div>
+
+  <!-- Full-Screen Responsive Canvas for Celebration Hearts & Pastel Confetti -->
+  <canvas id="confettiCanvas" aria-hidden="true"></canvas>
+
+  <!-- ========================================================================
+       Top-Right Cute Sound Mute/Unmute Toggle Button
+       ======================================================================== -->
+  <button
+    id="soundToggleBtn"
+    type="button"
+    aria-label="Toggle Sound"
+    title="Toggle cute sound effects"
+    class="fixed top-4 right-4 z-50 flex items-center justify-center w-11 h-11 rounded-full bg-white/85 backdrop-blur-md border-2 border-blush-200 shadow-md text-lg hover:scale-110 active:scale-95 transition-transform duration-200 cursor-pointer"
+  >
+    <span id="soundIcon">🔊</span>
+  </button>
+
+  <!-- ========================================================================
+       MAIN STAGE 1: Proposal Interactive Sequence
+       ======================================================================== -->
+  <main id="proposalStage" class="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-center justify-center">
+    <!-- Responsive Wrapper: Stacks cleanly on mobile, sits side-by-side on medium/desktop when bunny appears -->
+    <div id="proposalLayout" class="w-full flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8 transition-all duration-500">
+
+      <!-- Left/Center Column: Staggered Cute Drop-Down Boxes -->
+      <div class="w-full max-w-md flex flex-col items-center gap-5 sm:gap-6">
+
+        <!-- 1. First Drop-Down Box: "I love you baby 💖" -->
+        <div
+          id="bannerBox"
+          class="drop-hidden relative w-full puffy-card border-[3px] border-blush-200 rounded-[2rem] px-6 py-5 sm:py-6 text-center overflow-visible"
+        >
+          <!-- Cute Ribbon / Floating Mini Hearts Accents -->
+          <span class="absolute -top-4 -left-2 text-2xl sm:text-3xl animate-gentle-float select-none" style="animation-delay: 0.1s;">🎀</span>
+          <span class="absolute -top-3 -right-2 text-xl sm:text-2xl animate-gentle-float select-none" style="animation-delay: 0.7s;">💕</span>
+          <span class="absolute -bottom-3 right-6 text-base sm:text-lg animate-heartbeat select-none">💗</span>
+
+          <div class="inline-flex items-center justify-center gap-2 px-3 py-1 mb-2 rounded-full bg-blush-50 border border-blush-200 text-xs font-semibold text-blush-500 tracking-wide">
+            <span>✨ A Sweet Little Note For My Princess ✨</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl font-bold text-blush-500 tracking-tight drop-shadow-sm">
+            I love you baby <span class="inline-block animate-heartbeat">💖</span>
+          </h1>
+        </div>
+
+        <!-- 2. Second Drop-Down Box: "Do you love me? 🥺💕" -->
+        <div
+          id="questionBox"
+          class="drop-hidden relative w-full puffy-card border-[3px] border-lavender-200 rounded-[2rem] px-6 py-6 sm:py-7 text-center"
+        >
+          <!-- Subtle Cute Mini Envelope Icon on Top -->
+          <div class="mx-auto mb-3 w-12 h-12 rounded-2xl bg-gradient-to-br from-blush-100 to-lavender-100 border-2 border-white shadow-sm flex items-center justify-center text-2xl animate-gentle-float">
+            💌
+          </div>
+
+          <p class="text-2xl sm:text-3xl font-bold text-cocoa leading-snug">
+            Do you love me? <span class="inline-block">🥺💕</span>
+          </p>
+          <p class="mt-1.5 text-sm font-soft font-semibold text-cocoa/70">
+            Answer honestly, my sweet girl ✨
+          </p>
+        </div>
+
+        <!-- 3. Third Drop-Down Section: Two Adorable Button Boxes Side by Side -->
+        <div
+          id="buttonsBox"
+          class="drop-hidden w-full flex flex-row items-center justify-center gap-4 sm:gap-5 pt-1"
+        >
+          <!-- YES Button Box -->
+          <div id="yesBtnWrapper" class="transition-transform duration-300 ease-out">
+            <button
+              id="yesBtn"
+              type="button"
+              class="puffy-btn-yes relative min-w-[132px] sm:min-w-[152px] px-7 py-4 rounded-[1.5rem] bg-gradient-to-b from-blush-400 to-blush-500 border-[3px] border-white text-white text-xl sm:text-2xl font-bold tracking-wide flex items-center justify-center gap-2 cursor-pointer select-none"
+            >
+              <span>Yes</span>
+              <span class="text-2xl">💖</span>
+            </button>
+          </div>
+
+          <!-- NO Button Box -->
+          <div id="noBtnWrapper" class="transition-transform duration-300 ease-out">
+            <button
+              id="noBtn"
+              type="button"
+              class="puffy-btn-no relative min-w-[126px] sm:min-w-[144px] px-6 py-4 rounded-[1.5rem] bg-gradient-to-b from-white to-lavender-100 border-[3px] border-lavender-200 text-cocoa text-xl sm:text-2xl font-bold tracking-wide flex items-center justify-center gap-2 cursor-pointer select-none"
+            >
+              <span>No</span>
+              <span class="text-2xl">🙈</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ====================================================================
+           Right Side Companion (Desktop) / Below Buttons (Mobile):
+           Cute SVG Pouty Bunny & Playful English Speech Bubble
+           ==================================================================== -->
+      <aside
+        id="noCompanion"
+        class="hidden flex-col items-center justify-center max-w-[275px] sm:max-w-[300px] w-full pt-2 md:pt-0"
+        aria-live="polite"
+      >
+        <!-- Speech Bubble Message Box -->
+        <div
+          id="speechBubble"
+          class="speech-bubble relative bg-white border-[3px] border-blush-200 rounded-[1.75rem] px-5 py-4 shadow-lg text-center mb-4 w-full"
+        >
+          <p id="bubbleMainText" class="font-cute text-base sm:text-lg font-bold text-blush-500 leading-snug">
+            You can't click No! 🥺
+          </p>
+          <p id="bubbleSubtext" class="hidden mt-1 font-soft text-xs sm:text-sm font-semibold text-cocoa/75"></p>
+        </div>
+
+        <!-- Custom Kawaii Inline SVG: Chubby White Bunny with Blushy Cheeks & Pleading Expression -->
+        <div id="bunnyContainer" class="relative w-40 h-44 sm:w-44 sm:h-48 flex items-center justify-center select-none">
+          <svg
+            viewBox="0 0 220 230"
+            class="w-full h-full drop-shadow-md overflow-visible"
+            role="img"
+            aria-label="Cute pleading cartoon bunny"
+          >
+            <!-- Soft Ground Shadow -->
+            <ellipse cx="110" cy="212" rx="58" ry="11" fill="#f9c6d9" opacity="0.55" />
+
+            <!-- Left Bunny Ear (slightly tilted playfully) -->
+            <g id="bunnyLeftEar" transform="rotate(-14 78 65)">
+              <ellipse cx="78" cy="48" rx="18" ry="44" fill="#ffffff" stroke="#6b4752" stroke-width="4" stroke-linecap="round" />
+              <ellipse cx="78" cy="52" rx="9" ry="29" fill="#ffd1e3" />
+            </g>
+
+            <!-- Right Bunny Ear -->
+            <g id="bunnyRightEar" transform="rotate(14 142 65)">
+              <ellipse cx="142" cy="48" rx="18" ry="44" fill="#ffffff" stroke="#6b4752" stroke-width="4" stroke-linecap="round" />
+              <ellipse cx="142" cy="52" rx="9" ry="29" fill="#ffd1e3" />
+            </g>
+
+            <!-- Chubby Round Body -->
+            <ellipse cx="110" cy="172" rx="54" ry="42" fill="#ffffff" stroke="#6b4752" stroke-width="4" />
+            <!-- Soft Tummy Patch -->
+            <ellipse cx="110" cy="178" rx="31" ry="24" fill="#fff5f8" />
+
+            <!-- Little Chubby Feet -->
+            <ellipse cx="82" cy="204" rx="16" ry="11" fill="#ffffff" stroke="#6b4752" stroke-width="4" />
+            <ellipse cx="138" cy="204" rx="16" ry="11" fill="#ffffff" stroke="#6b4752" stroke-width="4" />
+            <ellipse cx="82" cy="205" rx="7" ry="4.5" fill="#ffd1e3" />
+            <ellipse cx="138" cy="205" rx="7" ry="4.5" fill="#ffd1e3" />
+
+            <!-- Chubby Round Head -->
+            <ellipse cx="110" cy="116" rx="64" ry="54" fill="#ffffff" stroke="#6b4752" stroke-width="4" />
+
+            <!-- Rosy Blush Cheeks -->
+            <ellipse cx="66" cy="126" rx="13" ry="8" fill="#ffb3cf" opacity="0.85" />
+            <ellipse cx="154" cy="126" rx="13" ry="8" fill="#ffb3cf" opacity="0.85" />
+
+            <!-- Pleading / Pouty Cute Eyebrows -->
+            <path d="M 74 96 Q 84 91 91 98" fill="none" stroke="#6b4752" stroke-width="3.2" stroke-linecap="round" />
+            <path d="M 146 96 Q 136 91 129 98" fill="none" stroke="#6b4752" stroke-width="3.2" stroke-linecap="round" />
+
+            <!-- Big Glossy Kawaii Eyes -->
+            <g>
+              <circle cx="84" cy="114" r="10.5" fill="#52333d" />
+              <circle cx="80.5" cy="110" r="3.8" fill="#ffffff" />
+              <circle cx="87.5" cy="117.5" r="2" fill="#ffffff" />
+
+              <circle cx="136" cy="114" r="10.5" fill="#52333d" />
+              <circle cx="132.5" cy="110" r="3.8" fill="#ffffff" />
+              <circle cx="139.5" cy="117.5" r="2" fill="#ffffff" />
+            </g>
+
+            <!-- Tiny Optional Teardrop Sparkle (shown on extra No clicks) -->
+            <g id="bunnyTear" class="opacity-0 transition-opacity duration-300">
+              <path d="M 70 120 Q 65 129 70 133 Q 75 129 70 120 Z" fill="#93c5fd" stroke="#60a5fa" stroke-width="1.5" />
+            </g>
+
+            <!-- Cute Tiny Pink Nose & Pouty Mouth -->
+            <ellipse cx="110" cy="123" rx="4.5" ry="3.2" fill="#ff85b3" />
+            <path d="M 102 133 Q 110 127 118 133" fill="none" stroke="#6b4752" stroke-width="3.2" stroke-linecap="round" />
+
+            <!-- Little Paws Raised Up Cutly Holding a Mini Heart -->
+            <ellipse cx="83" cy="166" rx="14" ry="11" transform="rotate(-25 83 166)" fill="#ffffff" stroke="#6b4752" stroke-width="4" />
+            <ellipse cx="137" cy="166" rx="14" ry="11" transform="rotate(25 137 166)" fill="#ffffff" stroke="#6b4752" stroke-width="4" />
+
+            <!-- Mini Heart Held in Paws -->
+            <path
+              d="M110 183 C110 183 94 172 94 162 C94 156 99 152 104 152 C107.2 152 109.2 154 110 156 C110.8 154 112.8 152 116 152 C121 152 126 156 126 162 C126 172 110 183 110 183 Z"
+              fill="#ff6ea4"
+              stroke="#6b4752"
+              stroke-width="3"
+              stroke-linejoin="round"
+            />
+
+            <!-- Cute Pout Puff / Sparkle near Head -->
+            <path d="M 178 80 L 181 88 L 189 91 L 181 94 L 178 102 L 175 94 L 167 91 L 175 88 Z" fill="#ff85b3" />
+          </svg>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- ========================================================================
+       MAIN STAGE 2: Romantic Celebration View (Shown after clicking "Yes 💖")
+       ======================================================================== -->
+  <section
+    id="celebrationStage"
+    class="hidden relative z-10 w-full max-w-lg mx-auto flex-col items-center justify-center text-center"
+  >
+    <div class="relative w-full puffy-card border-[3px] border-blush-200 rounded-[2.25rem] px-6 sm:px-9 py-8 sm:py-9">
+      <!-- Floating Corner Decorations -->
+      <span class="absolute -top-4 -left-3 text-3xl animate-gentle-float select-none">🌸</span>
+      <span class="absolute -top-4 -right-3 text-3xl animate-gentle-float select-none" style="animation-delay: 0.6s;">💖</span>
+      <span class="absolute -bottom-3 left-6 text-2xl animate-gentle-float select-none" style="animation-delay: 0.3s;">✨</span>
+      <span class="absolute -bottom-3 right-6 text-2xl animate-gentle-float select-none" style="animation-delay: 0.9s;">🎀</span>
+
+      <!-- Custom Kawaii SVG: Two Adorable Bunnies Happily Hugging with a Glowing Heart -->
+      <div class="mx-auto w-56 h-44 sm:w-64 sm:h-48 mb-2 flex items-center justify-center select-none">
+        <svg
+          viewBox="0 0 300 220"
+          class="w-full h-full drop-shadow-md overflow-visible"
+          role="img"
+          aria-label="Two cute cartoon bunnies hugging happily"
+        >
+          <defs>
+            <radialGradient id="heartGlow" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="#ff6ea4" stop-opacity="0.55" />
+              <stop offset="100%" stop-color="#ff6ea4" stop-opacity="0" />
+            </radialGradient>
+          </defs>
+
+          <!-- Soft Ground Shadow -->
+          <ellipse cx="150" cy="202" rx="98" ry="13" fill="#f9c6d9" opacity="0.55" />
+
+          <!-- Glowing Aura Behind Floating Heart -->
+          <circle cx="150" cy="54" r="36" fill="url(#heartGlow)" />
+
+          <!-- Floating Pulsing Heart Between Them -->
+          <g class="origin-center animate-heartbeat" style="transform-box: fill-box;">
+            <path
+              d="M150 74 C150 74 126 57 126 42 C126 33 133 27 141 27 C145.5 27 148.6 29.8 150 33 C151.4 29.8 154.5 27 159 27 C167 27 174 33 174 42 C174 57 150 74 150 74 Z"
+              fill="#ff5c97"
+              stroke="#6b4752"
+              stroke-width="3.2"
+              stroke-linejoin="round"
+            />
+            <!-- Gloss Highlight on Heart -->
+            <ellipse cx="138" cy="40" rx="4" ry="2.5" transform="rotate(-30 138 40)" fill="#ffffff" opacity="0.8" />
+          </g>
+
+          <!-- Sparkles Around Heart -->
+          <path d="M 105 42 L 107.5 48 L 113.5 50.5 L 107.5 53 L 105 59 L 102.5 53 L 96.5 50.5 L 102.5 48 Z" fill="#fbbf24" />
+          <path d="M 196 38 L 198 43 L 203 45 L 198 47 L 196 52 L 194 47 L 189 45 L 194 43 Z" fill="#ff85b3" />
+
+          <!-- ================= LEFT BUNNY (Creamy White with Pink Bow) ================= -->
+          <g transform="translate(8, 8)">
+            <!-- Ears -->
+            <g transform="rotate(-18 76 72)">
+              <ellipse cx="76" cy="56" rx="14" ry="34" fill="#ffffff" stroke="#6b4752" stroke-width="3.6" />
+              <ellipse cx="76" cy="59" rx="7" ry="22" fill="#ffd1e3" />
+            </g>
+            <g transform="rotate(8 112 72)">
+              <ellipse cx="112" cy="56" rx="14" ry="34" fill="#ffffff" stroke="#6b4752" stroke-width="3.6" />
+              <ellipse cx="112" cy="59" rx="7" ry="22" fill="#ffd1e3" />
+            </g>
+
+            <!-- Body -->
+            <ellipse cx="102" cy="158" rx="42" ry="36" fill="#ffffff" stroke="#6b4752" stroke-width="3.6" />
+            <!-- Feet -->
+            <ellipse cx="82" cy="188" rx="14" ry="9" fill="#ffffff" stroke="#6b4752" stroke-width="3.6" />
+            <ellipse cx="116" cy="189" rx="14" ry="9" fill="#ffffff" stroke="#6b4752" stroke-width="3.6" />
+
+            <!-- Head -->
+            <ellipse cx="98" cy="112" rx="48" ry="42" fill="#ffffff" stroke="#6b4752" stroke-width="3.6" />
+
+            <!-- Cute Pink Bow on Left Ear -->
+            <g transform="translate(69, 76) rotate(-18)">
+              <ellipse cx="-8" cy="0" rx="8" ry="5.5" fill="#ff85b3" stroke="#6b4752" stroke-width="2.4" />
+              <ellipse cx="8" cy="0" rx="8" ry="5.5" fill="#ff85b3" stroke="#6b4752" stroke-width="2.4" />
+              <circle cx="0" cy="0" r="4" fill="#ff5c97" stroke="#6b4752" stroke-width="2.2" />
+            </g>
+
+            <!-- Blush Cheeks -->
+            <ellipse cx="70" cy="122" rx="10" ry="6" fill="#ffb3cf" opacity="0.9" />
+            <ellipse cx="126" cy="122" rx="10" ry="6" fill="#ffb3cf" opacity="0.9" />
+
+            <!-- Happy Closed Arc Eyes -->
+            <path d="M 74 111 Q 82 102 90 111" fill="none" stroke="#6b4752" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M 106 111 Q 114 102 122 111" fill="none" stroke="#6b4752" stroke-width="3.5" stroke-linecap="round" />
+
+            <!-- Sweet Smile & Tiny Nose -->
+            <ellipse cx="98" cy="118" rx="3.5" ry="2.4" fill="#ff85b3" />
+            <path d="M 91 124 Q 98 131 105 124" fill="none" stroke="#6b4752" stroke-width="3" stroke-linecap="round" />
+          </g>
+
+          <!-- ================= RIGHT BUNNY (Warm Cream/Peach with Lavender Bowtie) ================= -->
+          <g transform="translate(-8, 8)">
+            <!-- Ears -->
+            <g transform="rotate(-8 188 72)">
+              <ellipse cx="188" cy="56" rx="14" ry="34" fill="#fff3e6" stroke="#6b4752" stroke-width="3.6" />
+              <ellipse cx="188" cy="59" rx="7" ry="22" fill="#ffd6cc" />
+            </g>
+            <g transform="rotate(18 224 72)">
+              <ellipse cx="224" cy="56" rx="14" ry="34" fill="#fff3e6" stroke="#6b4752" stroke-width="3.6" />
+              <ellipse cx="224" cy="59" rx="7" ry="22" fill="#ffd6cc" />
+            </g>
+
+            <!-- Body -->
+            <ellipse cx="198" cy="158" rx="42" ry="36" fill="#fff3e6" stroke="#6b4752" stroke-width="3.6" />
+            <!-- Feet -->
+            <ellipse cx="184" cy="189" rx="14" ry="9" fill="#fff3e6" stroke="#6b4752" stroke-width="3.6" />
+            <ellipse cx="218" cy="188" rx="14" ry="9" fill="#fff3e6" stroke="#6b4752" stroke-width="3.6" />
+
+            <!-- Head -->
+            <ellipse cx="202" cy="112" rx="48" ry="42" fill="#fff3e6" stroke="#6b4752" stroke-width="3.6" />
+
+            <!-- Cute Lavender Bowtie -->
+            <g transform="translate(202, 150)">
+              <polygon points="-10,-5 0,0 -10,5" fill="#c084fc" stroke="#6b4752" stroke-width="2.2" stroke-linejoin="round" />
+              <polygon points="10,-5 0,0 10,5" fill="#c084fc" stroke="#6b4752" stroke-width="2.2" stroke-linejoin="round" />
+              <circle cx="0" cy="0" r="3.5" fill="#a855f7" stroke="#6b4752" stroke-width="2" />
+            </g>
+
+            <!-- Blush Cheeks -->
+            <ellipse cx="174" cy="122" rx="10" ry="6" fill="#ffb3cf" opacity="0.9" />
+            <ellipse cx="230" cy="122" rx="10" ry="6" fill="#ffb3cf" opacity="0.9" />
+
+            <!-- Happy Closed Arc Eyes -->
+            <path d="M 178 111 Q 186 102 194 111" fill="none" stroke="#6b4752" stroke-width="3.5" stroke-linecap="round" />
+            <path d="M 210 111 Q 218 102 226 111" fill="none" stroke="#6b4752" stroke-width="3.5" stroke-linecap="round" />
+
+            <!-- Sweet Smile & Tiny Nose -->
+            <ellipse cx="202" cy="118" rx="3.5" ry="2.4" fill="#ff85b3" />
+            <path d="M 195 124 Q 202 131 209 124" fill="none" stroke="#6b4752" stroke-width="3" stroke-linecap="round" />
+          </g>
+
+      <!-- Romantic Headings & Girlfriend Proposal Message -->
+      <div class="inline-flex items-center gap-1.5 px-4 py-1 mb-3 rounded-full bg-blush-50 border border-blush-200 text-xs sm:text-sm font-semibold text-blush-500">
+        <span>🎉 She Said YES! 🎉</span>
+      </div>
+
+      <h2 class="text-3xl sm:text-4xl font-bold text-blush-500 leading-tight">
+        Yay!! I knew it! 🥰💖
+      </h2>
+
+      <p class="mt-3 text-lg sm:text-xl font-bold text-cocoa leading-snug">
+        You just made me the happiest guy in the world.
+      </p>
+
+      <div class="mt-4 px-5 py-4 rounded-2xl bg-gradient-to-r from-blush-50 via-cream to-lavender-100/70 border-2 border-blush-100">
+        <p class="font-cute text-lg sm:text-xl font-bold text-blush-500 leading-relaxed">
+          Will you be my girlfriend forever? 💍💑
+        </p>
+        <p class="mt-1 font-soft text-xs sm:text-sm font-semibold text-cocoa/75">
+          My favorite person, my sunshine, and my forever princess 👑💕
+        </p>
+      </div>
+
+      <!-- Interactive Glowing "Open My Love Letter 💌" CTA Button -->
+      <div class="mt-6 flex flex-col items-center gap-4">
+        <button
+          id="openLetterBtn"
+          type="button"
+          class="puffy-btn-yes glow-letter-btn w-full sm:w-auto px-8 py-3.5 rounded-[1.5rem] bg-gradient-to-r from-blush-400 via-blush-500 to-pink-500 border-[3px] border-white text-white text-lg sm:text-xl font-bold flex items-center justify-center gap-2 hover:scale-105 active:scale-95 cursor-pointer"
+        >
+          <span>Open My Love Letter</span>
+          <span class="text-2xl">💌</span>
+        </button>
+
+        <!-- Small Subtle Replay Button -->
+        <button
+          id="replayBtn"
+          type="button"
+          class="mt-1 px-4 py-2 rounded-full text-sm font-semibold text-cocoa/65 hover:text-blush-500 hover:bg-white/70 transition-colors duration-200 flex items-center gap-1.5 cursor-pointer"
+        >
+          <span>Replay ↺</span>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================
+       LOVE LETTER MODAL (Custom Kawaii Envelope Note, No Native Alerts)
+       ======================================================================== -->
+  <div
+    id="loveLetterModal"
+    class="hidden fixed inset-0 z-50 items-center justify-center p-4 bg-cocoa/35 backdrop-blur-sm"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="letterModalTitle"
+  >
+    <div
+      id="loveLetterCard"
+      class="modal-pop relative w-full max-w-md bg-cream border-[3px] border-blush-200 rounded-[2rem] p-6 sm:p-8 shadow-2xl text-center"
+    >
+      <!-- Wax Seal Heart Icon -->
+      <div class="mx-auto -mt-12 mb-4 w-16 h-16 rounded-full bg-gradient-to-br from-blush-400 to-blush-500 border-4 border-white shadow-lg flex items-center justify-center text-2xl animate-heartbeat">
+        💌
+      </div>
+
+      <h3 id="letterModalTitle" class="font-script text-2xl sm:text-3xl text-blush-500">
+        To My Sweetest Baby Girl 💖
+      </h3>
+
+      <div class="mt-4 space-y-3 text-left bg-white/90 rounded-2xl p-5 border-2 border-blush-100 shadow-inner font-soft">
+        <p class="text-sm sm:text-base font-semibold text-cocoa leading-relaxed">
+          My Dearest Princess,
+        </p>
+        <p class="text-sm sm:text-base text-cocoa leading-relaxed">
+          From the moment you came into my life, every single day has felt brighter, warmer, and so much happier. Your smile is my favorite sight, your laugh is my favorite sound, and being with you is my favorite place to be. ✨
+        </p>
+        <p class="text-sm sm:text-base text-cocoa leading-relaxed">
+          I promise to always cherish you, hold your hand through every adventure, make you smile on your toughest days, and love you more and more with every heartbeat. Thank you for being mine, baby girl. 🌷💕
+        </p>
+        <p class="pt-2 text-right font-script text-blush-500 text-lg">
+          Forever Yours, Always 💍💖
+        </p>
+      </div>
+
+      <button
+        id="closeLetterBtn"
+        type="button"
+        class="mt-6 px-7 py-3 rounded-full bg-blush-100 hover:bg-blush-200 text-blush-500 font-bold text-base border-2 border-blush-200 transition-all duration-200 active:scale-95 cursor-pointer"
+      >
+        Keep In My Heart 💗
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       Application Logic: Animations, Sound Synth, Interactions & Confetti
+       ======================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ----------------------------------------------------------------------
+         DOM Element References
+         ---------------------------------------------------------------------- */
+      const ambientLayer = document.getElementById('ambientLayer');
+      const soundToggleBtn = document.getElementById('soundToggleBtn');
+      const soundIcon = document.getElementById('soundIcon');
+
+      const proposalStage = document.getElementById('proposalStage');
+      const bannerBox = document.getElementById('bannerBox');
+      const questionBox = document.getElementById('questionBox');
+      const buttonsBox = document.getElementById('buttonsBox');
+
+      const yesBtn = document.getElementById('yesBtn');
+      const yesBtnWrapper = document.getElementById('yesBtnWrapper');
+      const noBtn = document.getElementById('noBtn');
+      const noBtnWrapper = document.getElementById('noBtnWrapper');
+
+      const noCompanion = document.getElementById('noCompanion');
+      const speechBubble = document.getElementById('speechBubble');
+      const bubbleMainText = document.getElementById('bubbleMainText');
+      const bubbleSubtext = document.getElementById('bubbleSubtext');
+      const bunnyContainer = document.getElementById('bunnyContainer');
+      const bunnyTear = document.getElementById('bunnyTear');
+
+      const celebrationStage = document.getElementById('celebrationStage');
+      const openLetterBtn = document.getElementById('openLetterBtn');
+      const replayBtn = document.getElementById('replayBtn');
+
+      const loveLetterModal = document.getElementById('loveLetterModal');
+      const closeLetterBtn = document.getElementById('closeLetterBtn');
+
+      const confettiCanvas = document.getElementById('confettiCanvas');
+      const ctx = confettiCanvas.getContext('2d');
+
+      /* ----------------------------------------------------------------------
+         Application State
+         ---------------------------------------------------------------------- */
+      let isMuted = false;
+      let audioCtx = null;
+      let noClickCount = 0;
+      let sequenceTimers = [];
+      let confettiParticles = [];
+      let confettiAnimId = null;
+
+      /* Playful English messages tailored for a girlfriend when clicking "No" */
+      const noMessages = [
+        { main: "You can't click No! 🥺", sub: '' },
+        { main: "Nice try, baby, No isn't allowed! 🙈", sub: 'Only Yes works here~' },
+        { main: 'My heart only accepts Yes! 💕', sub: 'Look how big the Yes button is getting!' },
+        { main: 'Pretty please, my princess? 👑💖', sub: 'Tap Yes for a sweet surprise ✨' },
+      ];
+
+      /* ----------------------------------------------------------------------
+         Pure Web Audio API Cute Sound Synthesizer (No External Files Needed)
+         ---------------------------------------------------------------------- */
+      function initAudio() {
+        try {
+          if (!audioCtx) {
+            const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+            if (AudioContextClass) {
+              audioCtx = new AudioContextClass();
+            }
+          }
+          if (audioCtx && audioCtx.state === 'suspended') {
+            audioCtx.resume();
+          }
+        } catch (err) {
+          // Gracefully ignore audio errors if blocked by browser policy
+        }
+      }
+
+      /**
+       * Plays a soft cute pop/chime note using an oscillator with exponential envelope
+       */
+      function playTone(freq, duration = 0.14, type = 'sine', volume = 0.12, delay = 0) {
+        if (isMuted) return;
+        try {
+          initAudio();
+          if (!audioCtx) return;
+
+          const now = audioCtx.currentTime + delay;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+
+          osc.type = type;
+          osc.frequency.setValueAtTime(freq, now);
+
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(volume, now + 0.015);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start(now);
+          osc.stop(now + duration + 0.02);
+        } catch (err) {
+          // Safe fallback
+        }
+      }
+
+      function playBoingSound() {
+        if (isMuted) return;
+        try {
+          initAudio();
+          if (!audioCtx) return;
+
+          const now = audioCtx.currentTime;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(340, now);
+          osc.frequency.exponentialRampToValueAtTime(210, now + 0.09);
+          osc.frequency.exponentialRampToValueAtTime(420, now + 0.22);
+
+          gain.gain.setValueAtTime(0.001, now);
+          gain.gain.linearRampToValueAtTime(0.14, now + 0.02);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + 0.25);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start(now);
+          osc.stop(now + 0.26);
+        } catch (err) {}
+      }
+
+      function playCelebrationChime() {
+        // Happy sparkly pastel major arpeggio (C5 -> E5 -> G5 -> B5 -> C6)
+        const notes = [523.25, 659.25, 783.99, 987.77, 1046.5];
+        notes.forEach((freq, idx) => {
+          playTone(freq, 0.35, 'triangle', 0.13, idx * 0.075);
+        });
+      }
+
+      function playLetterPopSound() {
+        playTone(659.25, 0.14, 'sine', 0.11, 0);
+        playTone(880.0, 0.2, 'sine', 0.11, 0.07);
+      }
+
+      /* ----------------------------------------------------------------------
+         Ambient Floating Hearts & Twinkling Sparkles Generator
+         ---------------------------------------------------------------------- */
+      function populateAmbientBackground() {
+        ambientLayer.innerHTML = '';
+        const heartSymbols = ['💖', '💗', '💕', '🌸', '🤍', '💓'];
+        const heartCount = window.innerWidth < 640 ? 14 : 22;
+
+        for (let i = 0; i < heartCount; i++) {
+          const el = document.createElement('span');
+          el.className = 'bg-heart';
+          el.textContent = heartSymbols[i % heartSymbols.length];
+
+          const left = Math.random() * 96 + 2;
+          const size = Math.random() * 14 + 14;
+          const duration = Math.random() * 9 + 10;
+          const delay = -(Math.random() * 16);
+          const drift = (Math.random() - 0.5) * 60;
+          const spin = (Math.random() - 0.5) * 45;
+
+          el.style.left = `${left}%`;
+          el.style.fontSize = `${size}px`;
+          el.style.animationDuration = `${duration}s`;
+          el.style.animationDelay = `${delay}s`;
+          el.style.setProperty('--drift', `${drift}px`);
+          el.style.setProperty('--spin', `${spin}deg`);
+
+          ambientLayer.appendChild(el);
+        }
+
+        const sparkleCount = window.innerWidth < 640 ? 12 : 20;
+        for (let i = 0; i < sparkleCount; i++) {
+          const star = document.createElement('span');
+          star.className = 'bg-sparkle';
+          star.textContent = '✦';
+          star.style.left = `${Math.random() * 94 + 3}%`;
+          star.style.top = `${Math.random() * 92 + 4}%`;
+          star.style.fontSize = `${Math.random() * 10 + 10}px`;
+          star.style.color = i % 2 === 0 ? '#ff9ec2' : '#d8b4fe';
+          star.style.animationDuration = `${Math.random() * 2.5 + 2}s`;
+          star.style.animationDelay = `${Math.random() * 3}s`;
+
+          ambientLayer.appendChild(star);
+        }
+      }
+
+      /* ----------------------------------------------------------------------
+         Staggered Cute Drop-Down Sequence on Load / Replay
+         ---------------------------------------------------------------------- */
+      function clearSequenceTimers() {
+        sequenceTimers.forEach((id) => clearTimeout(id));
+        sequenceTimers = [];
+      }
+
+      function startProposalSequence() {
+        clearSequenceTimers();
+
+        // Reset drop classes cleanly
+        [bannerBox, questionBox, buttonsBox].forEach((el) => {
+          el.classList.remove('drop-in');
+          el.classList.add('drop-hidden');
+        });
+
+        // 1. Immediately drop down: "I love you baby 💖"
+        sequenceTimers.push(
+          setTimeout(() => {
+            bannerBox.classList.remove('drop-hidden');
+            bannerBox.classList.add('drop-in');
+          }, 120)
+        );
+
+        // 2. ~1.2 seconds later: "Do you love me? 🥺💕"
+        sequenceTimers.push(
+          setTimeout(() => {
+            questionBox.classList.remove('drop-hidden');
+            questionBox.classList.add('drop-in');
+          }, 1320)
+        );
+
+        // 3. ~0.6 seconds after that: "Yes 💖" and "No 🙈" button boxes
+        sequenceTimers.push(
+          setTimeout(() => {
+            buttonsBox.classList.remove('drop-hidden');
+            buttonsBox.classList.add('drop-in');
+          }, 1920)
+        );
+      }
+
+      /* ----------------------------------------------------------------------
+         "No" Button Interaction: Playful Shake, Cute Bunny & English Speech Bubble
+         ---------------------------------------------------------------------- */
+      function handleNoClick() {
+        noClickCount += 1;
+        playBoingSound();
+
+        // Playfully shake the No button
+        noBtn.classList.remove('animate-shake');
+        void noBtn.offsetWidth; // Force reflow to restart animation
+        noBtn.classList.add('animate-shake');
+
+        // Reveal the adorable cartoon bunny & speech bubble on first click
+        if (noClickCount === 1) {
+          noCompanion.classList.remove('hidden');
+          noCompanion.classList.add('flex', 'animate-pop-in');
+
+          // On small mobile screens, ensure bunny smoothly stays in view
+          if (window.innerWidth < 768) {
+            setTimeout(() => {
+              noCompanion.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }, 120);
+          }
+        } else {
+          // On repeated clicks: Bunny hops & wiggles adorably
+          bunnyContainer.classList.remove('animate-bunny-hop');
+          void bunnyContainer.offsetWidth;
+          bunnyContainer.classList.add('animate-bunny-hop');
+
+          // Speech bubble pops again
+          speechBubble.classList.remove('animate-bubble-pop');
+          void speechBubble.offsetWidth;
+          speechBubble.classList.add('animate-bubble-pop');
+        }
+
+        // Show cute teardrop sparkle after 2+ clicks
+        if (noClickCount >= 2) {
+          bunnyTear.classList.remove('opacity-0');
+          bunnyTear.classList.add('opacity-100');
+        }
+
+        // Cycle smoothly through playful English girlfriend messages
+        const msgData = noMessages[(noClickCount - 1) % noMessages.length];
+        bubbleMainText.textContent = msgData.main;
+        if (msgData.sub) {
+          bubbleSubtext.textContent = msgData.sub;
+          bubbleSubtext.classList.remove('hidden');
+        } else {
+          bubbleSubtext.classList.add('hidden');
+        }
+
+        // Gently shrink "No" button & grow/pulse "Yes" button to encourage clicking Yes
+        const noScale = Math.max(0.68, 1 - noClickCount * 0.08);
+        const yesScale = Math.min(1.28, 1 + noClickCount * 0.07);
+
+        noBtnWrapper.style.transform = `scale(${noScale})`;
+        yesBtnWrapper.style.transform = `scale(${yesScale})`;
+        yesBtn.classList.add('yes-encouraged');
+      }
+
+      /* ----------------------------------------------------------------------
+         "Yes" Button Interaction: Transition to Joyous Proposal Celebration
+         ---------------------------------------------------------------------- */
+      function handleYesClick() {
+        playCelebrationChime();
+
+        proposalStage.classList.add('hidden');
+        celebrationStage.classList.remove('hidden');
+        celebrationStage.classList.add('flex', 'view-enter');
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        launchCelebrationConfetti();
+      }
+
+      /* ----------------------------------------------------------------------
+         Responsive Canvas Confetti & Floating Hearts Shower
+         ---------------------------------------------------------------------- */
+      function resizeConfettiCanvas() {
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        confettiCanvas.width = window.innerWidth * dpr;
+        confettiCanvas.height = window.innerHeight * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      }
+
+      function createConfettiParticle(fromTop = false) {
+        const colors = ['#ff6ea4', '#ff9ec2', '#f472b6', '#d8b4fe', '#fde68a', '#fda4af', '#ffffff'];
+        const isHeart = Math.random() < 0.48;
+        return {
+          x: Math.random() * window.innerWidth,
+          y: fromTop ? -20 - Math.random() * 140 : Math.random() * window.innerHeight * 0.4 - 60,
+          vx: (Math.random() - 0.5) * 3.2,
+          vy: Math.random() * 2.6 + 1.8,
+          size: isHeart ? Math.random() * 10 + 10 : Math.random() * 7 + 5,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * Math.PI * 2,
+          rotationSpeed: (Math.random() - 0.5) * 0.12,
+          isHeart,
+          opacity: 1,
+          swayPhase: Math.random() * Math.PI * 2,
+        };
+      }
+
+      function drawCanvasHeart(x, y, size, rotation, color, opacity) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.rotate(rotation);
+        ctx.globalAlpha = opacity;
+        ctx.fillStyle = color;
+        ctx.beginPath();
+        const topCurveHeight = size * 0.3;
+        ctx.moveTo(0, topCurveHeight);
+        ctx.bezierCurveTo(0, 0, -size / 2, 0, -size / 2, topCurveHeight);
+        ctx.bezierCurveTo(-size / 2, (size + topCurveHeight) / 2, 0, (size + topCurveHeight) / 1.25, 0, size);
+        ctx.bezierCurveTo(0, (size + topCurveHeight) / 1.25, size / 2, (size + topCurveHeight) / 2, size / 2, topCurveHeight);
+        ctx.bezierCurveTo(size / 2, 0, 0, 0, 0, topCurveHeight);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function animateConfetti() {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        for (let i = confettiParticles.length - 1; i >= 0; i--) {
+          const p = confettiParticles[i];
+          p.swayPhase += 0.04;
+          p.x += p.vx + Math.sin(p.swayPhase) * 0.7;
+          p.y += p.vy;
+          p.rotation += p.rotationSpeed;
+
+          if (p.y > window.innerHeight - 90) {
+            p.opacity -= 0.025;
+          }
+
+          if (p.opacity <= 0 || p.y > window.innerHeight + 40) {
+            confettiParticles.splice(i, 1);
+            continue;
+          }
+
+          if (p.isHeart) {
+            drawCanvasHeart(p.x, p.y, p.size, p.rotation, p.color, p.opacity);
+          } else {
+            ctx.save();
+            ctx.translate(p.x, p.y);
+            ctx.rotate(p.rotation);
+            ctx.globalAlpha = p.opacity;
+            ctx.fillStyle = p.color;
+            ctx.beginPath();
+            ctx.roundRect(-p.size / 2, -p.size / 3, p.size, p.size * 0.65, 3);
+            ctx.fill();
+            ctx.restore();
+          }
+        }
+
+        if (confettiParticles.length > 0) {
+          confettiAnimId = requestAnimationFrame(animateConfetti);
+        } else {
+          confettiAnimId = null;
+          ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        }
+      }
+
+      function launchCelebrationConfetti() {
+        resizeConfettiCanvas();
+        const burstCount = window.innerWidth < 640 ? 75 : 120;
+        for (let i = 0; i < burstCount; i++) {
+          confettiParticles.push(createConfettiParticle(true));
+        }
+
+        // Second joyful wave shortly after
+        setTimeout(() => {
+          if (!celebrationStage.classList.contains('hidden')) {
+            const waveCount = window.innerWidth < 640 ? 40 : 65;
+            for (let i = 0; i < waveCount; i++) {
+              confettiParticles.push(createConfettiParticle(true));
+            }
+            if (!confettiAnimId) animateConfetti();
+          }
+        }, 650);
+
+        if (!confettiAnimId) {
+          animateConfetti();
+        }
+      }
+
+      /* ----------------------------------------------------------------------
+         Love Letter Modal Open / Close
+         ---------------------------------------------------------------------- */
+      function openLoveLetter() {
+        playLetterPopSound();
+        loveLetterModal.classList.remove('hidden');
+        loveLetterModal.classList.add('flex');
+      }
+
+      function closeLoveLetter() {
+        playTone(587.33, 0.12, 'sine', 0.09);
+        loveLetterModal.classList.add('hidden');
+        loveLetterModal.classList.remove('flex');
+      }
+
+      /* ----------------------------------------------------------------------
+         Replay Handler: Resets Everything Cleanly to Step 1
+         ---------------------------------------------------------------------- */
+      function handleReplay() {
+        playTone(523.25, 0.12, 'sine', 0.1);
+
+        // Stop confetti
+        confettiParticles = [];
+        if (confettiAnimId) {
+          cancelAnimationFrame(confettiAnimId);
+          confettiAnimId = null;
+        }
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+
+        // Reset No counter, button scales, bunny state
+        noClickCount = 0;
+        noBtnWrapper.style.transform = 'scale(1)';
+        yesBtnWrapper.style.transform = 'scale(1)';
+        yesBtn.classList.remove('yes-encouraged');
+
+        noCompanion.classList.add('hidden');
+        noCompanion.classList.remove('flex', 'animate-pop-in');
+        bunnyTear.classList.remove('opacity-100');
+        bunnyTear.classList.add('opacity-0');
+        bubbleMainText.textContent = noMessages[0].main;
+        bubbleSubtext.classList.add('hidden');
+        bubbleEmoji.textContent = '😤💕';
+
+        // Switch stages back to Proposal
+        celebrationStage.classList.add('hidden');
+        celebrationStage.classList.remove('flex', 'view-enter');
+        proposalStage.classList.remove('hidden');
+
+        startProposalSequence();
+      }
+
+      /* ----------------------------------------------------------------------
+         Event Listeners
+         ---------------------------------------------------------------------- */
+      soundToggleBtn.addEventListener('click', () => {
+        isMuted = !isMuted;
+        soundIcon.textContent = isMuted ? '🔇' : '🔊';
+        if (!isMuted) {
+          playTone(783.99, 0.12, 'sine', 0.1);
+        }
+      });
+
+      noBtn.addEventListener('click', handleNoClick);
+      yesBtn.addEventListener('click', handleYesClick);
+      openLetterBtn.addEventListener('click', openLoveLetter);
+      closeLetterBtn.addEventListener('click', closeLoveLetter);
+      replayBtn.addEventListener('click', handleReplay);
+
+      // Close modal when clicking outside the letter card
+      loveLetterModal.addEventListener('click', (e) => {
+        if (e.target === loveLetterModal) {
+          closeLoveLetter();
+        }
+      });
+
+      // Close modal with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !loveLetterModal.classList.contains('hidden')) {
+          closeLoveLetter();
+        }
+      });
+
+      window.addEventListener('resize', () => {
+        resizeConfettiCanvas();
+      });
+
+      /* ----------------------------------------------------------------------
+         Initialize on Window Load
+         ---------------------------------------------------------------------- */
+      window.addEventListener('load', () => {
+        resizeConfettiCanvas();
+        populateAmbientBackground();
+        startProposalSequence();
+      });
+    })();
+  </script>
+</body>
+</html>
